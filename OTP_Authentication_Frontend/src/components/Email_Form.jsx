@@ -4,10 +4,10 @@ import React, { useState } from 'react';
 const Email_Form = ({ onSubmit }) => {
   const [email, setEmail] = useState('');
 
-  // Handle form submission
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    onSubmit(email); // Pass email to parent component
+    event.preventDefault(); // Prevent the default form submission
+    console.log('Submit button clicked'); // Log when the submit button is clicked
+    onSubmit(email); // Call the onSubmit prop with the email value
   };
 
   return (

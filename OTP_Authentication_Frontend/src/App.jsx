@@ -11,16 +11,17 @@ const App = () => {
   const [otpVerified, setOtpVerified] = useState(false);
   const navigate = useNavigate();
 
-  // Handle email form submission
   const handleEmailSubmit = async (email) => {
+    console.log('Email submitted:', email); // Log the submitted email
     try {
-      const response = await axios.post('/api/send-otp', { email });
+      const response = await axios.post('http://localhost:5000/api/send-otp', { email });
+      console.log('API response:', response); // Log the API response
       if (response.status === 200) {
         setOtpSent(true);
         navigate('/otp-form');
       }
     } catch (error) {
-      console.error('Error sending OTP:', error);
+      console.error('Error sending OTP:', error); // Log any errors
     }
   };
 
